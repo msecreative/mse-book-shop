@@ -7,7 +7,7 @@
 <?php 
     get_header();
 ?>
-sdfs
+
 <?php 
     get_footer();
 ?>
