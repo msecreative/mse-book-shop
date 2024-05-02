@@ -20,6 +20,27 @@
           add_theme_support('title-tag'); //Let WordPress manage the document title.
           add_theme_support('post-thumbnails'); //Enable support for Post Thumbnails on posts and pages.
           add_theme_support('aside', 'gallery', 'link', 'image', 'quote', 'video', 'audio'); //Add post type format support.
+
+          /**
+           * Add support for core custom logo.
+           */
+
+           add_theme_support( 'custom-logo', [
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+		] );
+
+           /**
+            * Register menu locations
+            */
+
+            register_nav_menus(
+                [
+                    'primary' => esc_html__('Header Menu', 'mse-book-shop'),
+                ]
+        );
     }
  }
 
@@ -47,3 +68,22 @@
   }
 
   add_action('wp_enqueue_scripts', 'mse_book_shop_assets');
+
+  /**
+   * Widges function
+   */
+
+   function mse_bs_theme_widgets(){
+    register_sidebar(
+        [
+            'name' => __('Footer Widget', 'mse-book-shop'),
+            'id'   => 'mse-bs-footer-wdg',
+            'before_widget' => '<div class="text-center">',
+            'after_widget' => '</div>',
+            'before_title' => '',
+            'after_title' => '',
+        ]
+    );
+   }
+
+   add_action('widgets_init', 'mse_bs_theme_widgets');

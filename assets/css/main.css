@@ -3,12 +3,15 @@
 :root {
     --font-primary: "Montserrat", sans-serif;
     --font-secondary: "Poppins", sans-serif;
+    --font-curvy: "Dancing Script", cursive;
 
     --text-color-primary:#000;
     --text-color-secondary:#6e6e6e;
     --text-color-white: #fff;
 
     --color-primary: #d04c4c;
+    --color-secondary: #f9f9f9;
+    --color-white: #fff;
     --bg-overlay: rgba(0, 0, 0, 0.39);
 
 }
@@ -27,9 +30,178 @@ body {
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 1rem;
+    background: var(--color-secondary);
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-secondary);
 }
 
+.mse-bs-header {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    z-index: 0;
+    padding: 70px 0;
+    background: var(--color-primary);
+}
+
+.mse-bs-header-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.mse-bs-header-menu li.menu-item a {
+    text-transform: lowercase;
+    position: relative;
+    display: inline-block;
+    margin-left: 50px;
+    color: var(--text-color-white);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    text-decoration: none;
+    z-index: 0;
+}
+
+.mse-bs-header-menu li.menu-item.current-menu-item a {
+    font-weight: 700;
+}
+
+.mse-bs-header-menu li.menu-item a::after {
+    content: '.';
+    position: absolute;
+    z-index: 10;
+    color: var(--text-color-white);
+    bottom: 0;
+    right: -5;
+}
+
+h1.mse-bs-page-title {
+    font-size: 7.5rem;
+    font-family: var(--font-curvy);
+    line-height: 1;
+    color: var(--text-color-white);
+}
+
+a.mse-bs-logo {
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: var(--text-color-white);
+    font-family: var(--font-curvy);
+    font-weight: 700;
+}
+/* Post Articles */
+ .mse-bs-content-area {
+    padding: 60px 0;
+ }
+
+ .mse-bs-post-thumbnail {
+    width: 100%;
+    height: 200px;
+    margin: 0;
+ }
+
+ figure.mse-bs-post-thumbnail img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    object-position: bottom;
+}
+
+.mse-bs-post-content {
+    width: 100%;
+    padding: 20px 30px;
+    background: var(--color-white);
+}
+
+.mse-bs-post-content h4 a {
+    font-family: var(--font-secondary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color-primary);
+    line-height: 28px;
+    text-decoration: none;
+}
+
+.mse-bs-metas span,
+.mse-bs-metas span a{
+    font-family: var(--font-secondary);
+    font-size: .75rem;
+    font-weight: 300;
+    color: var(--text-color-secondary);
+}
+
+.mse-bs-metas span a{
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.mse-bs-post-excerpt {
+    color: var(--text-color-primary);
+    font-family: var(--font-primary);
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.mse-bs-post-read-more {
+    text-decoration: none;
+    color: var(--text-color-primary);
+    font-size: .875rem;
+    font-family: var(--font-primary);
+    line-height: 28px;
+    font-weight: 600;
+}
+
+/* Pagination style */
+
+.mse-bs-pagination {
+    width: 100%;
+    height: auto;
+}
+
+.mse-bs-pagination .page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    flex-wrap: wrap;
+    width: auto;
+    padding: 7px 15px;
+    margin: 0 5px;
+    background: var(--color-white);
+    color: var(--text-color-primary);
+    text-decoration: none;
+}
+
+.mse-bs-pagination .page-numbers.current {
+    font-weight: 600;
+}
+
+.mse-bs-pagination .page-numbers:hover {
+    text-decoration: underline;
+}
+
+/* footer css */
+
+footer.mse-bs-footer-area {
+    min-height: 60px;
+    background: var(--color-white);
+    width: 100%;
+    color: var(--text-color-primary);
+    font-size: .875rem;
+    font-weight: 400;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer.mse-bs-footer-area p {
+    margin: 0;
+}
