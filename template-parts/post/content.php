@@ -15,7 +15,12 @@
         </h4>
         <div class="mse-bs-metas d-flex justify-content-between mb-2">
             <span class="mse-bs-post-terms"><?=esc_html__("In: ", "mse-book-shop"); ?> <?php the_category(', '); ?></span>
-            <?php the_date( 'M d, Y', '<span class="mse-bs-post-date">On: ', '</span>' ); ?>
+            <span class="mse-bs-post-date">
+                <?php 
+                    echo esc_html__('On: ', 'mse-book-shop');
+                    echo esc_html__(get_the_date( 'M d, Y'), 'mse-book-shop');
+                ?>
+            </span>
             <span class="mse-bs-post-author"><?=esc_html__("By: ", "mse-book-shop"); ?> <?php the_author(); ?></span>
         </div>
         <div class="mse-bs-post-excerpt mb-2">

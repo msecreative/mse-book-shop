@@ -2,6 +2,8 @@
     /**
      * Header Template File
      */
+
+     global $post;
 ?>
 <!DOCTYPE html>
 <html lang="<?php language_attributes( ); ?>">
@@ -62,9 +64,30 @@
         
         <div class="container">
             <div class="row">
+                <?php 
+                    if (is_home() || is_front_page() || is_page()) {
+                        
+                ?>
                 <div class="col-md-12">
                     <h1 class="mse-bs-page-title text-center"><?php esc_html__(single_post_title(), 'mse-book-shop') ?></h1>          
                 </div>
+                <?php  }elseif (is_singular()) { ?>
+                    <div class="col-md-12">
+                        <h1 class="mse-bs-single-page-title text-left"><?php esc_html__(single_post_title(), 'mse-book-shop') ?></h1>
+                        <div class="mse-bs-metas mb-2">
+                            <span class="mse-bs-post-terms"><?=esc_html__("In: ", "mse-book-shop"); ?> <?php the_category(', '); ?></span>
+                            <span class="mse-bs-post-date">
+                                <?php 
+                                    echo esc_html__('On: ', 'mse-book-shop');
+                                    echo esc_html__(get_the_date( 'M d, Y'), 'mse-book-shop');
+                                ?>
+                            </span>
+                            <span class="mse-bs-post-author"><?=esc_html__("By: ", "mse-book-shop"); ?> <a href="<?=esc_url(get_author_posts_url($post->post_author)); ?>"><?php the_author_meta('user_nicename', $post->post_author); ?></a></span>
+                        </div>         
+                    </div> 
+                <?php }else{ ?>
+                    
+                <?php } ?>
             </div>
         </div>
     </header>
